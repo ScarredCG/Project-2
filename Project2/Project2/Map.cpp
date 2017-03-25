@@ -1,13 +1,6 @@
 #include "Map.h"
 
-
-
-
-
-
-
 Map::Map(std::string startLocationName)
-
 {
 
 	CurrentLocation = new Location(startLocationName, 0, 0);
@@ -16,13 +9,7 @@ Map::Map(std::string startLocationName)
 
 	_mapLookup[hash] = CurrentLocation;
 
-
-
 }
-
-
-
-
 
 Map::~Map()
 
@@ -30,10 +17,7 @@ Map::~Map()
 
 }
 
-
-
 void Map::Move(Location *newLocation)
-
 {
 
 	_locationsVisited.push(newLocation);
@@ -42,10 +26,7 @@ void Map::Move(Location *newLocation)
 
 }
 
-
-
 Location * Map::LookupLocationOnMap(int x, int y)
-
 {
 
 	std::string hash = "(" + std::to_string(x) + "," + std::to_string(y) + ")";
@@ -54,12 +35,21 @@ Location * Map::LookupLocationOnMap(int x, int y)
 
 }
 
-
-
 std::string Map::GetPathBackToHome()
-
 {
 
-	return "TODO: Implement this";
+	std::string path;
+
+	while (_locationsVisited.size() != 0)
+
+	{
+
+		path += _locationsVisited.top()->GetName() + " --> ";
+
+		_locationsVisited.pop();
+
+	}
+
+	return path;
 
 }

@@ -14,9 +14,7 @@ void GoEast(Map &map);
 
 void GoWest(Map &map);
 
-
-
-
+void PathHome(Map &map);
 
 int main()
 
@@ -61,30 +59,33 @@ int main()
 
 		case 2:
 			system("cls");
-			//cout << "You have gone North of your current location. " << endl;
+			cout << "You have gone North of your current location. " << endl;
 			GoNorth(map); break;
 			system("pause");
 
 		case 3:
 			system("cls");
-			//cout << "You have gone East of your current location. " << endl;
+			cout << "You have gone East of your current location. " << endl;
 			GoEast(map); break;
 			system("pause");
 
 		case 4:
 			system("cls");
-			//cout << "You have gone South of your current location . " << endl;
+			cout << "You have gone South of your current location . " << endl;
 			GoSouth(map); break;
 			system("pause");
 
 		case 5:
 			system("cls");
-			//cout << "You have gone West of your current location. " << endl;
+			cout << "You have gone West of your current location. " << endl;
 			GoWest(map); break;
 			system("pause");
 
 		case 6: system("cls");
-			cout << map.GetPathBackToHome() << endl; break;
+			cout << "Here's how to get back to home: " << endl;
+			cout << map.GetPathBackToHome();
+			cout << "Home" << endl;
+			break;
 
 		case 0: system("cls");
 			cout << "Program will now close" << endl;
@@ -126,13 +127,9 @@ void GoNorth(Map &map)
 
 		auto existing = map.LookupLocationOnMap(newX, newY);
 
-
-
-
-
 		system("cls");
 
-		cout << "You haven't been here before, enter a name for this place: ";
+		cout << "You haven't been here before, what would you like to name this place? ";
 
 		string name;
 
@@ -184,13 +181,9 @@ void GoEast(Map &map)
 
 		auto existing = map.LookupLocationOnMap(newX, newY);
 
-
-
-
-
 		system("cls");
 
-		cout << "You haven't been here before, enter a name for this place: ";
+		cout << "You haven't been here before, what would you like to name this place? ";
 
 		string name;
 
@@ -239,13 +232,9 @@ void GoSouth(Map &map)
 
 		auto existing = map.LookupLocationOnMap(newX, newY);
 
-
-
-
-
 		system("cls");
 
-		cout << "You haven't been here before, enter a name for this place: ";
+		cout << "You haven't been here before, what would you like to name this place? ";
 
 		string name;
 
@@ -294,13 +283,9 @@ void GoWest(Map &map)
 
 		auto existing = map.LookupLocationOnMap(newX, newY);
 
-
-
-
-
 		system("cls");
 
-		cout << "You haven't been here before, enter a name for this place: ";
+		cout << "You haven't been here before, what would you like to name this place? ";
 
 		string name;
 
@@ -309,7 +294,6 @@ void GoWest(Map &map)
 		newLocation = new Location(name, newX, newY);
 
 		cout << "This place is now called: " + name << endl;
-
 
 
 	}
